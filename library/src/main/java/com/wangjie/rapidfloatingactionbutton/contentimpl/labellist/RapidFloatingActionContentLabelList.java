@@ -34,9 +34,9 @@ import java.util.List;
  */
 public class RapidFloatingActionContentLabelList extends RapidFloatingActionContent implements View.OnClickListener {
     public interface OnRapidFloatingActionContentLabelListListener<T> {
-        void onRFACItemLabelClick(int position, RFACLabelItem<T> item);
+        void onRFACItemLabelClick(int position, RFACLabelItem<T> item, View view);
 
-        void onRFACItemIconClick(int position, RFACLabelItem<T> item);
+        void onRFACItemIconClick(int position, RFACLabelItem<T> item, View view);
     }
 
     private OnRapidFloatingActionContentLabelListListener onRapidFloatingActionContentLabelListListener;
@@ -219,9 +219,9 @@ public class RapidFloatingActionContentLabelList extends RapidFloatingActionCont
         }
         int i = v.getId();
         if (i == R.id.rfab__content_label_list_label_tv) {
-            onRapidFloatingActionContentLabelListListener.onRFACItemLabelClick(position, items.get(position));
+            onRapidFloatingActionContentLabelListListener.onRFACItemLabelClick(position, items.get(position), v);
         } else if (i == R.id.rfab__content_label_list_icon_iv) {
-            onRapidFloatingActionContentLabelListListener.onRFACItemIconClick(position, items.get(position));
+            onRapidFloatingActionContentLabelListListener.onRFACItemIconClick(position, items.get(position), v);
         } else if (i == R.id.rfab__content_label_list_root_view) {
             onRapidFloatingActionListener.collapseContent();
         }
